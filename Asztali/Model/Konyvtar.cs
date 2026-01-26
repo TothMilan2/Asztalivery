@@ -8,7 +8,7 @@ namespace Asztali.Model
 {
     internal class Konyvtar
     {
-        private readonly string _name;
+        
 
         public override string ToString()
         {

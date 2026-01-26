@@ -2,6 +2,6 @@
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("A GITHUB EGY SZAR!");
+        Console.WriteLine("");
     }
 }

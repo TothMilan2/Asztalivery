@@ -8,7 +8,29 @@ namespace Asztali.Model
 {
     internal class Konyvtar
     {
-        private readonly string _name;
+        private int _bookID;
+        private string _booknev;
+        private bool _kivaneveve;
+        private string _kiadasiev;
+        private int _kolcsonzesideje;
+        private int _ISBN;
+
+        public int BookID { get => _bookID; set => _bookID = value; }
+        public string Booknev { get => _booknev; set => _booknev = value; }
+        public bool Kivaneveve { get => _kivaneveve; set => _kivaneveve = value; }
+        public string Kiadasiev { get => _kiadasiev; set => _kiadasiev = value; }
+        public int Kolcsonzesideje { get => _kolcsonzesideje; set => _kolcsonzesideje = value; }
+        public int ISBN { get => _ISBN; set => _ISBN = value; }
+
+        public Konyvtar(int bookID, string booknev, bool kivaneveve, string kiadasiev, int kolcsonzesideje, int iSBN)
+        {
+            BookID = bookID;
+            Booknev = booknev;
+            Kivaneveve = kivaneveve;
+            Kiadasiev = kiadasiev;
+            Kolcsonzesideje = kolcsonzesideje;
+            ISBN = iSBN;
+        }
 
         public override string ToString()
         {

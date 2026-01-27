@@ -14,7 +14,7 @@ internal class Program
     private static void Main(string[] args)
     {
         DbCheck(conncetionString);
-        SelectFromTable("könyvek", conncetionString);
+        SelectFromTable("konyvek", conncetionString);
         
 
     }

@@ -16,7 +16,8 @@ internal class Program
         DbCheck(conncetionString);
         SelectFromTable("konyvek", conncetionString);
         Adatbetoltes(ref adatok);
-        Console.WriteLine(lista.Count);
+
+        
 
     }
 
@@ -28,9 +29,9 @@ internal class Program
 
             konyv.BookID = o.Field<int>(0);
             konyv.Booknev = o.Field<string>(1);
-            konyv.Kivaneveve = o.Field<bool>(2);
-            konyv.Kiadasiev = o.Field<string>(3);
-            konyv.Kolcsonzesideje = o.Field<int>(4);
+            konyv.Kivaneveve = o.Field<string>(2);
+            konyv.Kiadasiev = o.Field<int>(3);
+            konyv.Kolcsonzesideje = o.Field<string>(4);
             konyv.ISBN = o.Field<int>(5);
 
             lista.Add(konyv);

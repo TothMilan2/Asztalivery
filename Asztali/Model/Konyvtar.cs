@@ -32,6 +32,7 @@ namespace Asztali.Model
             ISBN = iSBN;
         }
 
+        public Konyvtar() { }   
         public override string ToString()
         {
             return $"bookID: {BookID}, cím: {Booknev}, Ki van véve: {Kivaneveve}, kiadási év: {Kiadasiev}, kölcsönzés ideje: {Kolcsonzesideje}, ISBN: {ISBN}";

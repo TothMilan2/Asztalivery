@@ -4,7 +4,7 @@ using System.Data;
 
 internal class Program
 {
-    public static readonly string conncetionString = "Server=localhost;Database=11a_foldrajz;User=root;";
+    public static readonly string conncetionString = "Server=localhost;Database=asztali_projekt;User=root;";
     public static DataBaseService dbservice = new DataBaseService();
 
     //adattarolo
@@ -13,6 +13,19 @@ internal class Program
 
     private static void Main(string[] args)
     {
-        Console.WriteLine("A GITHUB EGY SZAR!");
+        DbCheck(conncetionString);
+        SelectFromTable("könyvek", conncetionString);
+        
+
+    }
+    private static void SelectFromTable(string tableName, string conncetionString)
+    {
+        adatok = DataBaseService.GetAllData(tableName, conncetionString);
+        Console.WriteLine("Adatok sikeresen szinkronizálva!");
+    }
+
+    private static void DbCheck(string conncetionString)
+    {
+        DataBaseService.DbConnectionCheck(conncetionString);
     }
 }

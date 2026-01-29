@@ -33,6 +33,9 @@ internal class Program
         }
     }
 
+
+
+    }
     private static void Adatbetoltes(ref DataTable adatok)
     {
         foreach (DataRow o in adatok.Rows)

@@ -22,6 +22,7 @@ namespace Asztali.Model
         public string Kolcsonzesideje { get => _kolcsonzesideje; set => _kolcsonzesideje = value; }
         public int ISBN { get => _ISBN; set => _ISBN = value; }
 
+        
         public Konyvtar(int bookID, string booknev, string kivaneveve, int kiadasiev, string kolcsonzesideje, int iSBN)
         {
             BookID = bookID;

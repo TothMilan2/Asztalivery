@@ -16,12 +16,28 @@ internal class Program
         DbCheck(conncetionString);
         SelectFromTable("konyvek", conncetionString);
         Adatbetoltes(ref adatok);
+        MennyikonyvOsszTrue(lista);
         
-
         
 
     }
+    private static void MennyikonyvOsszTrue(List<Konyvtar> lista)
+    {
+        int db = 0;
+        foreach (Konyvtar item in lista)
+        {
+            if (item.Kivaneveve == "true")
+            {
+                db++;
+                Console.WriteLine($"Kivett könyvek összesen: {db}" );
 
+            }
+            
+        }
+
+
+
+    }
     private static void Adatbetoltes(ref DataTable adatok)
     {
         foreach (DataRow o in adatok.Rows)

@@ -16,7 +16,8 @@ internal class Program
         DbCheck(conncetionString);
         SelectFromTable("konyvek", conncetionString);
         Adatbetoltes(ref adatok);
-        Console.WriteLine("");
+        
+
         
 
     }

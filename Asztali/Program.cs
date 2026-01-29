@@ -16,10 +16,21 @@ internal class Program
         DbCheck(conncetionString);
         SelectFromTable("konyvek", conncetionString);
         Adatbetoltes(ref adatok);
-        
+        Ketezertizenketto(lista);
 
         
 
+    }
+
+    private static void Ketezertizenketto(List<Konyvtar> lista)
+    {
+        foreach (var item in lista)
+        {
+            if (item.Kiadasiev == 2012)
+            {
+                Console.WriteLine(item.Booknev);
+            }
+        }
     }
 
     private static void Adatbetoltes(ref DataTable adatok)
@@ -33,7 +44,7 @@ internal class Program
             konyv.Kivaneveve = o.Field<string>(2);
             konyv.Kiadasiev = o.Field<int>(3);
             konyv.Kolcsonzesideje = o.Field<string>(4);
-            konyv.ISBN = o.Field<int>(5);
+            konyv.ISBN = o.Field<long>(5);
 
             lista.Add(konyv);
         }

@@ -17,10 +17,27 @@ internal class Program
         SelectFromTable("konyvek", conncetionString);
         Adatbetoltes(ref adatok);
         MennyikonyvOsszTrue(lista);
+        OsszesKolcsonzott(lista);
+
         
         
 
     }
+
+    private static void OsszesKolcsonzott(List<Konyvtar> lista)
+    {
+        int db = 0;
+
+        foreach (var item in lista)
+        {
+            if (item.Kivaneveve == "true")
+            {
+                db++;
+            }
+        }
+        Console.WriteLine($"Az összes kölcsönzött könyv: {db}");
+    }
+
     private static void MennyikonyvOsszTrue(List<Konyvtar> lista)
     {
         int db = 0;
@@ -29,11 +46,12 @@ internal class Program
             if (item.Kivaneveve == "true")
             {
                 db++;
-                Console.WriteLine($"Kivett könyvek összesen: {db}" );
+                
 
             }
             
         }
+        Console.WriteLine($"Kivett könyvek összesen: {db}");
 
 
 

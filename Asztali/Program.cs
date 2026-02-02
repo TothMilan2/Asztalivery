@@ -16,45 +16,6 @@ internal class Program
         DbCheck(conncetionString);
         SelectFromTable("konyvek", conncetionString);
         Adatbetoltes(ref adatok);
-        MennyikonyvOsszTrue(lista);
-        OsszesKolcsonzott(lista);
-
-        
-        
-
-    }
-
-    private static void OsszesKolcsonzott(List<Konyvtar> lista)
-    {
-        int db = 0;
-
-        foreach (var item in lista)
-        {
-            if (item.Kivaneveve == "true")
-            {
-                db++;
-            }
-        }
-        Console.WriteLine($"Az összes kölcsönzött könyv: {db}");
-    }
-
-    private static void MennyikonyvOsszTrue(List<Konyvtar> lista)
-    {
-        int db = 0;
-        foreach (Konyvtar item in lista)
-        {
-            if (item.Kivaneveve == "true")
-            {
-                db++;
-                
-
-            }
-            
-        }
-        Console.WriteLine($"Kivett könyvek összesen: {db}");
-
-
-
     }
     private static void Adatbetoltes(ref DataTable adatok)
     {

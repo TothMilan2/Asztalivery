@@ -40,14 +40,16 @@ internal class Program
 
     private static void Sikerbetoltes(List<List<string>> adatok2)
     {
-        
 
-        foreach (var item in lista2)
+        
+        foreach (var item in adatok2)
         {
-            string nev = item.Konyvnev;
+            siker o = new siker();
+
+            o.Konyvnev = item[0];
    
 
-            siker o = new siker(nev);
+            
             lista2.Add(o);
 
 
@@ -58,7 +60,7 @@ internal class Program
     {
 
    
-            adatok2 = reader.FileRead("2001.xlsx", 1, ';', false);
+            adatok2 = reader.FileRead("2001.csv", 1, ';', false);
         
 
     }

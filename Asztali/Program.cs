@@ -15,6 +15,8 @@ internal class Program
     public static List<siker> lista2 = new List<siker>();
 
 
+
+
     private static void Main(string[] args)
     {
         DbCheck(conncetionString);
@@ -34,8 +36,25 @@ internal class Program
         Konyvkereses(lista);
         Sikerbeolvasas(ref adatok2);
         Sikerbetoltes(adatok2);
-        Console.WriteLine(lista2.Count);
+        SikeresKonyvekadatai(lista2,lista);
 
+    }
+
+    private static void SikeresKonyvekadatai(List<siker> lista2, List<Konyvtar> lista)
+    {
+            
+            foreach (var item in lista)
+            {
+            foreach(var item2 in lista2)
+            {
+                if (item.Booknev == item2.Konyvnev)
+                {
+                    Console.WriteLine($"A sikeres könyvek adatai: {item.Kiadasiev}, {item.Kivaneveve}");
+                }
+            }
+            
+            }
+        
     }
 
     private static void Sikerbetoltes(List<List<string>> adatok2)

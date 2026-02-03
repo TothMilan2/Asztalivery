@@ -1,20 +1,26 @@
 ﻿using Asztali.DataBase;
 using Asztali.Model;
 using System.Data;
+using System.Reflection.PortableExecutable;
 
 internal class Program
 {
     public static readonly string conncetionString = "Server=localhost;Database=asztali_projekt;User=root;";
     public static DataBaseService dbservice = new DataBaseService();
 
+    public static FileReadDLL.ReadFromFile reader = new FileReadDLL.ReadFromFile();
     public static DataTable adatok = new DataTable();
+    public static List<List<string>> adatok2= new List<List<string>>();
     public static List<Konyvtar> lista = new List<Konyvtar>();
+    public static List<siker> lista2 = new List<siker>();
+
 
     private static void Main(string[] args)
     {
         DbCheck(conncetionString);
         SelectFromTable("konyvek", conncetionString);
         Adatbetoltes(ref adatok);
+        
 
         Console.WriteLine("-------------------");
         Ketezertizenketto(lista);
@@ -26,9 +32,34 @@ internal class Program
         OsszesKolcsonzott(lista);
         Console.WriteLine("-------------------");
         Konyvkereses(lista);
+        Sikerbeolvasas(ref adatok2);
+        Sikerbetoltes(adatok2);
+        Console.WriteLine(lista2.Count);
+
+    }
+
+    private static void Sikerbetoltes(List<List<string>> adatok2)
+    {
+        
+
+        foreach (var item in lista2)
+        {
+            string nev = item.Konyvnev;
+   
+
+            siker o = new siker(nev);
+            lista2.Add(o);
 
 
+        }
+    }
 
+    private static void Sikerbeolvasas(ref List<List<string>> adatok2)
+    {
+
+   
+            adatok2 = reader.FileRead("2001.xlsx", 1, ';', false);
+        
 
     }
 

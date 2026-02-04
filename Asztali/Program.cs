@@ -13,6 +13,7 @@ internal class Program
     public static List<List<string>> adatok2= new List<List<string>>();
     public static List<Konyvtar> lista = new List<Konyvtar>();
     public static List<siker> lista2 = new List<siker>();
+    public static List<string> lista3 = new List<string>();
 
 
 
@@ -36,26 +37,31 @@ internal class Program
         Konyvkereses(lista);
         Sikerbeolvasas(ref adatok2);
         Sikerbetoltes(adatok2);
-        SikeresKonyvekadatai(lista2,lista);
+    
+        Mbetus(lista2, lista);
+      
 
     }
 
-    private static void SikeresKonyvekadatai(List<siker> lista2, List<Konyvtar> lista)
+
+
+    private static void Mbetus(List<siker> lista2, List<Konyvtar> lista)
     {
-            
-            foreach (var item in lista)
+        Console.WriteLine("M-betűs díjnyertes 2001-es könyvek: ");
+
+        foreach (var item in lista2)
+        {
+            if (item.Konyvnev.StartsWith("M"))
             {
-            foreach(var item2 in lista2)
-            {
-                if (item.Booknev == item2.Konyvnev)
-                {
-                    Console.WriteLine($"A sikeres könyvek adatai: {item.Kiadasiev}, {item.Kivaneveve}");
-                }
+                Console.WriteLine(item.Konyvnev);
+                
             }
+
             
-            }
-        
+        }
     }
+
+    
 
     private static void Sikerbetoltes(List<List<string>> adatok2)
     {
